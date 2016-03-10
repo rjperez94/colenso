@@ -35,28 +35,7 @@ img, object, embed, video {
 	padding-left: 1.82%;
 	padding-right: 1.82%;
 }
-#LayoutDiv1 {
-	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
-	display: block;
-}
-#LayoutDiv2 {
-	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
-	display: block;
-}
-#LayoutDiv3 {
-	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
-	display: block;
-}
-#LayoutDiv4 {
+#LayoutDiv {
 	clear: both;
 	float: left;
 	margin-left: 0;
@@ -72,28 +51,7 @@ img, object, embed, video {
 	padding-left: 1.1625%;
 	padding-right: 1.1625%;
 }
-#LayoutDiv1 {
-	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
-	display: block;
-}
-#LayoutDiv2 {
-	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
-	display: block;
-}
-#LayoutDiv3 {
-	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
-	display: block;
-}
-#LayoutDiv4 {
+#LayoutDiv {
 	clear: both;
 	float: left;
 	margin-left: 0;
@@ -112,28 +70,7 @@ img, object, embed, video {
 	padding-right: 0.9%;
 	margin: auto;
 }
-#LayoutDiv1 {
-	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
-	display: block;
-}
-#LayoutDiv2 {
-	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
-	display: block;
-}
-#LayoutDiv3 {
-	clear: both;
-	float: left;
-	margin-left: 0;
-	width: 100%;
-	display: block;
-}
-#LayoutDiv4 {
+#LayoutDiv {
 	clear: both;
 	float: left;
 	margin-left: 0;
