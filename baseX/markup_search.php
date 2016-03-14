@@ -42,7 +42,21 @@ try {
 	$session->execute("OPEN Colenso");
     // create query instance
     $input = $_GET["xquery"];
-    $query = $session->query($input);
+	$range = $_GET["range"];
+	$lower = intval($_GET["lower"]);
+	$upper = intval($_GET["upper"]);
+	if ($lower > $upper ) {
+		print '<script type="text/javascript"> 
+		function noResult() {
+    		alert("Illegal results range");
+		} </script>';
+		$url='http://localhost/colenso/';
+  		print '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+	} else if (strcmp($range, "custom") == 0) {
+		$query = $session->query("declare namespace tei= 'http://www.tei-c.org/ns/1.0'; ".$input." [position() = (".$lower." to ".$upper.") ]");
+	} else {
+		$query = $session->query("declare namespace tei= 'http://www.tei-c.org/ns/1.0'; ".$input);
+	}
 	
 	//clear folder
 	$files = glob("../results/*"); // get all file names
