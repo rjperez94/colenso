@@ -40,6 +40,15 @@ try {
   
   try {
 	$session->execute("OPEN Colenso");
+	
+	//clear folder
+	$files = glob("../results/*"); // get all file names
+	foreach($files as $file){ // iterate files
+		if(is_file($file)) {
+			unlink($file); // delete file
+		}
+	}
+	
     // create query instance
     $input = $_GET["xquery"];
 	$range = $_GET["range"];
@@ -52,32 +61,30 @@ try {
 		} </script>';
 		$url='http://localhost/colenso/';
   		print '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-	} else if (strcmp($range, "custom") == 0) {
-		$query = $session->query("declare namespace tei= 'http://www.tei-c.org/ns/1.0'; ".$input." [position() = (".$lower." to ".$upper.") ]");
-	} else {
-		$query = $session->query("declare namespace tei= 'http://www.tei-c.org/ns/1.0'; ".$input);
-	}
+	} 
 	
-	//clear folder
-	$files = glob("../results/*"); // get all file names
-	foreach($files as $file){ // iterate files
-		if(is_file($file)) {
-			unlink($file); // delete file
-		}
-	}
+	$query = $session->query("declare namespace tei= 'http://www.tei-c.org/ns/1.0'; ".$input);
 		
     // loop through all results
 	$i = 0;
+	$iter = 0;
     while($query->more()) {
 	  /*print '<div id="LayoutDiv">';
 	  print '<h1>'. ($i+=1) .'</h1>'; 
 	  print ' <pre><code class="html">'. $query->next() .'</code></pre> ';
 	  print '</div>';*/
+	  $iter++;
+	  if (strcmp($range, "custom") == 0 && $iter < $lower || $iter > $upper) {
+		  //skip
+		$query->next();
+	  } else {
+		//put it one in a xml file
+	  	$myfile = fopen("../results/search".($i+=1).".xml", "w") or die("Unable to open file!");
+	  	fwrite($myfile, $query->next());
+	  	fclose($myfile);
+	  }
 	  
-	  //put it one in a xml file
-	  $myfile = fopen("../results/search".($i+=1).".xml", "w") or die("Unable to open file!");
-	  fwrite($myfile, $query->next());
-	  fclose($myfile);
+	  
     }
 	$query->info();
     // close query instance

@@ -43,6 +43,7 @@ try {
     $input = filter_input(INPUT_GET,"logical",FILTER_SANITIZE_STRING);
 	//  create query instance
     $result = $session->execute("FIND ".$input);
+	
     // print all results
 	if ($result === "" || strcmp ($result , "Stopped at , 1/5: Syntax: FIND [keywords] Run a keyword query. Finds keywords in a database.") === "") {
 		print '<script type="text/javascript"> noResult() </script>';
@@ -52,6 +53,14 @@ try {
 	print '<div id="LayoutDiv">';
 	print $result."\n";
 	print '</div>';
+	/*$i = 0;
+	$arr = explode("<p xmlns='http://www.tei-c.org/ns/1.0'>", $result);
+	foreach ($arr as &$value) {
+    	//put it one in a xml file
+	  	$myfile = fopen("../results/search".($i+=1).".xml", "w") or die("Unable to open file!");
+	  	fwrite($myfile, "<p xmlns='http://www.tei-c.org/ns/1.0'>".$value);
+	  	fclose($myfile);
+	}*/
   } catch (Exception $e) {
     // print exception
     print $e->getMessage();
