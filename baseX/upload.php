@@ -23,11 +23,15 @@
 <?php
 /*
  * (C) BaseX Team 2005-12, BSD License
+ *
  */
 include("BaseXClient.php");
 try {
+  //Colenso website files dir
+  $siteDir = "D:/xampp/htdocs/colenso/TEIBP/content/";
   // create session
   $session = new Session("localhost", 1984, "admin", "admin");
+  //open db
   $session->execute("OPEN Colenso");
   
   //number of files  
@@ -88,7 +92,7 @@ try {
 		  rename($targetPath.".tmp", $targetPath);
 		  
 		  //add file to database
-		  $session->execute("ADD ".$originPath);
+		  $session->execute("ADD ".$siteDir.$fileName);
   		  print $session->info();
 		  
 		  echo "The file ". $fileName. " has been added to the database.";
