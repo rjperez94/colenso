@@ -51,7 +51,7 @@ try {
 	
     // create query instance
     $input = $_GET["xquery"];
-	$range = $_GET["range"];
+	$range = $_GET["range2"];
 	$lower = intval($_GET["lower"]);
 	$upper = intval($_GET["upper"]);
 	if ($lower > $upper ) {

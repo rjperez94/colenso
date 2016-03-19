@@ -35,7 +35,7 @@ img, object, embed, video {
 	padding-left: 1.82%;
 	padding-right: 1.82%;
 }
-#LayoutDiv {
+.LayoutDiv {
 	clear: both;
 	float: left;
 	margin-left: 0;

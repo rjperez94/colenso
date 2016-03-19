@@ -48,7 +48,7 @@ try {
 	}
 	
     $input = filter_input(INPUT_GET,"logical",FILTER_SANITIZE_STRING);
-	$range = $_GET["range"];
+	$range = $_GET["range1"];
 	$lower = intval($_GET["lower"]);
 	$upper = intval($_GET["upper"]);
 	if ($lower > $upper ) {
