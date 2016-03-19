@@ -61,7 +61,7 @@ try {
 		} </script>';
 		$url='http://localhost/colenso/';
   		print '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
-	} 
+	}
 	
 	$query = $session->query("declare namespace tei= 'http://www.tei-c.org/ns/1.0'; ".$input);
 		
@@ -69,12 +69,8 @@ try {
 	$i = 0;
 	$iter = 0;
     while($query->more()) {
-	  /*print '<div id="LayoutDiv">';
-	  print '<h1>'. ($i+=1) .'</h1>'; 
-	  print ' <pre><code class="html">'. $query->next() .'</code></pre> ';
-	  print '</div>';*/
 	  $iter++;
-	  if (strcmp($range, "custom") == 0 && $iter < $lower || $iter > $upper) {
+	  if ((strcmp($range, "custom") == 0 && ($iter < $lower || $iter > $upper))) {
 		  //skip
 		$query->next();
 	  } else {
@@ -96,9 +92,9 @@ try {
   // close session
   $session->close();
   
-  //redirect to search page
+  //redirect to results page
   if (count(glob("../results/*")) > 0 ) {
-  	$url='http://localhost/colenso/results/index.php';
+  	$url='http://localhost/colenso/results.php';
   	echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
   } else {	//redirect to home page
   	print '<script type="text/javascript"> noResult() </script>';

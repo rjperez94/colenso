@@ -39,28 +39,51 @@ try {
   
   try {
 	$session->execute("OPEN Colenso");
-    // create query instance
-    $input = filter_input(INPUT_GET,"logical",FILTER_SANITIZE_STRING);
-	//  create query instance
-    $result = $session->execute("FIND ".$input);
+	//clear folder
+	$files = glob("../results/*"); // get all file names
+	foreach($files as $file){ // iterate files
+		if(is_file($file)) {
+			unlink($file); // delete file
+		}
+	}
 	
-    // print all results
-	if ($result === "" || strcmp ($result , "Stopped at , 1/5: Syntax: FIND [keywords] Run a keyword query. Finds keywords in a database.") === "") {
-		print '<script type="text/javascript"> noResult() </script>';
+    $input = filter_input(INPUT_GET,"logical",FILTER_SANITIZE_STRING);
+	$range = $_GET["range"];
+	$lower = intval($_GET["lower"]);
+	$upper = intval($_GET["upper"]);
+	if ($lower > $upper ) {
+		print '<script type="text/javascript"> 
+		function noResult() {
+    		alert("Illegal results range");
+		} </script>';
 		$url='http://localhost/colenso/';
   		print '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 	}
-	print '<div id="LayoutDiv">';
-	print $result."\n";
-	print '</div>';
-	/*$i = 0;
-	$arr = explode("<p xmlns='http://www.tei-c.org/ns/1.0'>", $result);
-	foreach ($arr as &$value) {
-    	//put it one in a xml file
+	
+	//  create query instance
+	$query = $session->query("ft:search('Colenso','".$input."')");
+	
+    	
+    // loop through all results
+	$i = 0;
+	$iter = 0;
+    while($query->more()) {
+	  $iter++;
+	  if ((strcmp($range, "custom") == 0 && ($iter < $lower || $iter > $upper))) {
+		  //skip
+		$query->next();
+	  } else {
+		//put it one in a xml file
 	  	$myfile = fopen("../results/search".($i+=1).".xml", "w") or die("Unable to open file!");
-	  	fwrite($myfile, "<p xmlns='http://www.tei-c.org/ns/1.0'>".$value);
+	  	fwrite($myfile, $query->next());
 	  	fclose($myfile);
-	}*/
+	  }
+	  
+	  
+    }
+	$query->info();
+    // close query instance
+    $query->close();
   } catch (Exception $e) {
     // print exception
     print $e->getMessage();
@@ -68,6 +91,16 @@ try {
   
   // close session
   $session->close();
+  
+  //redirect to results page
+  if (count(glob("../results/*")) > 0 ) {
+  	$url='http://localhost/colenso/results.php';
+  	echo '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+  } else {	//redirect to home page
+  	print '<script type="text/javascript"> noResult() </script>';
+	$url='http://localhost/colenso/';
+  	print '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
+  }
 } catch (Exception $e) {
   // print exception
   print $e->getMessage();
