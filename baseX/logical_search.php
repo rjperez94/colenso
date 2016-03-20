@@ -34,8 +34,9 @@ try {
   $session = new Session("localhost", 1984, "admin", "admin");
   
   try {
-	unlink("../results/.dirs.dat");
-	
+	if (file_exists("../results/.dirs.dat")) {
+		unlink("../results/.dirs.dat");
+	}
 	$session->execute("OPEN Colenso");
 	//clear folder
 	$files = glob("../results/*"); // get all file names

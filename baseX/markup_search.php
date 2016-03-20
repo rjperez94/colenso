@@ -31,12 +31,15 @@ function noResult($string ) {
  */
 include("BaseXClient.php");
 try {
-  unlink("../results/.dirs.dat");
   
   // create session
   $session = new Session("localhost", 1984, "admin", "admin");
   
   try {
+	if (file_exists("../results/.dirs.dat")) {
+		unlink("../results/.dirs.dat");
+	}
+	
 	$session->execute("OPEN Colenso");
 	
 	//clear folder

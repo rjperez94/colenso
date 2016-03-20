@@ -8,7 +8,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Letters of Colenso</title>
+<title>Letters of Colenso - Search Results</title>
 <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="css/styles.css" rel="stylesheet" type="text/css">
 
@@ -20,6 +20,10 @@
 <body>
 <div class="gridContainer clearfix">
 
+<div class="LayoutDiv">
+<h1>Search Results</h1>
+</div>
+
 <?php
 include("baseX/BaseXClient.php");
 
@@ -28,17 +32,21 @@ try {
   $session = new Session("localhost", 1984, "admin", "admin");
   
   try {
-	$session->execute("OPEN Colenso");
-	
 	$reading = fopen("results/.dirs.dat", "r");
+	$contentDir = "TEIBP/content/";
+	$i = 0;
 	while (!feof($reading)) {
+	  $i++;
 	  $line = fgets($reading);
-	  // create query instance	
-	  $query = $session->query("doc ('".$line."')");
-	  // print results
-	  print $query->execute()."\n";
-	  // close query instance
-      $query->close();
+	  $name = basename($line);
+	  if ($name != "") {
+		  print "<div class='LayoutDiv'>";
+		  print "<h2>Result ".($i)." from <a href='".($contentDir.$name)."'>".$name."</a> </h2>";
+		  
+		  $file = file_get_contents('results/search'.$i.'.xml');
+		  print $file;
+		  print "</div>";
+		}
 	}
   } catch (Exception $e) {
     // print exception
