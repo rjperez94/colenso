@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type='text/xsl' href='teibp.xsl'?>
+<?xml-stylesheet type='text/xsl' href='teibp.xsl'?> 
 <catalog>
-   <book id="bk101">
+   <book id="Ron">
       <author>Gambardella, Matthew</author>
       <title>XML Developer's Guide</title>
       <genre>Computer</genre>
@@ -9,14 +9,14 @@
       <publish_date>2000-10-01</publish_date>
       <description>An in-depth look at creating applications 
       with XML.</description>
-   </book>
+   </book> 
    <book id="bk102">
       <author>Ralls, Kim</author>
       <title>Midnight Rain</title>
       <genre>Fantasy</genre>
       <price>5.95</price>
       <publish_date>2000-12-16</publish_date>
-      <description>A former architect battles corporate zombies, 
+      <description>A former architect battles corporate zombies,  
       an evil sorceress, and her own childhood to become queen 
       of the world.</description>
    </book>

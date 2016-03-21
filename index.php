@@ -47,9 +47,6 @@ $('input:radio[name="range2"]').change(
 </head>
 <body>
 <div class="gridContainer clearfix">
-
-
-
   <div class="LayoutDiv">
   <h1>About This Page</h1>
 	<p>The <a title="View details of the Colenso Society" href="/about-william-colenso/the-colenso-society/#Colenso Society" target="_blank">Colenso Society</a>, <a title="Go to Victoria University of Wellington website" href="http://www.victoria.ac.nz/wtapress/" target="_blank">Victoria University of Wellington </a>and <a title="View Hawke's Bay Musuem &amp; Art Gallery website" href="http://www.hbmag.co.nz/" target="_blank">MTG Hawke's Bay </a>are delighted to announce the establishment of the Colenso Project. This exciting new initiative seeks to build on the blossoming national and international interest in William Colenso’s life and ideas as the result of the William Colenso Bicentenary Celebrations in Hawke’s Bay in 2011, and a body of new publications and research.</p>
@@ -68,7 +65,6 @@ $('input:radio[name="range2"]').change(
   <div class="LayoutDiv">
   <h1>The Letters Database</h1>
     <p>To view all the letters, click <a href="TEIBP/content/.index.php" target="_blank">here</a></p>
-    <p>To view all the letters, click<a href="baseX/QueryBindExample.php" target="_blank">hereeeee</a></p>
     </div>
     
   <div class="LayoutDiv">
@@ -104,6 +100,5 @@ $('input:radio[name="range2"]').change(
 </div>
 
 </div>
-
 </body>
 </html>

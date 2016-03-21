@@ -1,8 +1,5 @@
 @charset "utf-8";
-/* Simple fluid media
-   Note: Fluid media requires that you remove the media's height and width attributes from the HTML
-   http://www.alistapart.com/articles/fluid-images/ 
-*/
+
 img, object, embed, video {
 	max-width: 100%;
 }
@@ -11,29 +8,13 @@ img, object, embed, video {
 	width:100%;
 }
 
-/*
-	Dreamweaver Fluid Grid Properties
-	----------------------------------
-	dw-num-cols-mobile:		5;
-	dw-num-cols-tablet:		8;
-	dw-num-cols-desktop:	10;
-	dw-gutter-percentage:	25;
-	
-	Inspiration from "Responsive Web Design" by Ethan Marcotte 
-	http://www.alistapart.com/articles/responsive-web-design
-	
-	and Golden Grid System by Joni Korpi
-	http://goldengridsystem.com/
-*/
-
-/* Mobile Layout: 480px and below. */
-
 .gridContainer {
 	margin-left: auto;
 	margin-right: auto;
 	width: 87.36%;
 	padding-left: 1.82%;
 	padding-right: 1.82%;
+	background: #eee;
 }
 .LayoutDiv {
 	clear: both;
@@ -41,6 +22,12 @@ img, object, embed, video {
 	margin-left: 0;
 	width: 100%;
 	display: block;
+}
+
+textarea {
+	resize:vertical;
+	min-height:50%;
+	min-width:50%;
 }
 
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
@@ -57,6 +44,11 @@ img, object, embed, video {
 	margin-left: 0;
 	width: 100%;
 	display: block;
+}
+textarea {
+	resize:vertical;
+	min-height:50%;
+	min-width:50%;
 }
 }
 
@@ -76,5 +68,10 @@ img, object, embed, video {
 	margin-left: 0;
 	width: 100%;
 	display: block;
+}
+textarea {
+	resize:vertical;
+	min-height:50%;
+	min-width:50%;
 }
 }

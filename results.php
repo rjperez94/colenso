@@ -41,7 +41,7 @@ try {
 	  $name = basename($line);
 	  if ($name != "") {
 		  print "<div class='LayoutDiv'>";
-		  print "<h2>Result ".($i)." from <a href='".($contentDir.$name)."'>".$name."</a> </h2>";
+		  print "<h2>Result ".($i)." from <a href='".($contentDir.$name)."'>".$name."</a></h2> <h3>[<a href='edit.php?name=$name'>Edit $name</a>]</h3>";
 		  
 		  $file = file_get_contents('results/search'.$i.'.xml');
 		  print $file;

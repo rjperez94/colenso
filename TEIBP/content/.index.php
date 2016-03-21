@@ -20,6 +20,7 @@
 			<th>Type</th>
 			<th>Size</th>
 			<th>Date Modified</th>
+            <th>Edit File</th>
 		</tr>
 	    </thead>
 	    <tbody><?php
@@ -107,32 +108,17 @@
 
 			// Prettifies file type
 			switch ($extn){
-				case "png": $extn="PNG Image"; break;
-				case "jpg": $extn="JPEG Image"; break;
-				case "jpeg": $extn="JPEG Image"; break;
-				case "svg": $extn="SVG Image"; break;
-				case "gif": $extn="GIF Image"; break;
-				case "ico": $extn="Windows Icon"; break;
 
 				case "txt": $extn="Text File"; break;
 				case "log": $extn="Log File"; break;
 				case "htm": $extn="HTML File"; break;
 				case "html": $extn="HTML File"; break;
-				case "xhtml": $extn="HTML File"; break;
-				case "shtml": $extn="HTML File"; break;
 				case "php": $extn="PHP Script"; break;
 				case "js": $extn="Javascript File"; break;
 				case "css": $extn="Stylesheet"; break;
 
-				case "pdf": $extn="PDF Document"; break;
-				case "xls": $extn="Spreadsheet"; break;
-				case "xlsx": $extn="Spreadsheet"; break;
-				case "doc": $extn="Microsoft Word Document"; break;
-				case "docx": $extn="Microsoft Word Document"; break;
-
 				case "zip": $extn="ZIP Archive"; break;
 				case "htaccess": $extn="Apache Config File"; break;
-				case "exe": $extn="Windows Executable"; break;
 
 				default: if($extn!=""){$extn=strtoupper($extn)." File";} else{$extn="Unknown";} break;
 			}
@@ -143,12 +129,14 @@
 		}
 
 	// Output
-	 echo("
+	 print("
 		<tr class='$class'>
 			<td><a href='./$namehref'$favicon class='name'>$name</a></td>
 			<td><a href='./$namehref'>$extn</a></td>
 			<td sorttable_customkey='$sizekey'><a href='./$namehref'>$size</a></td>
 			<td sorttable_customkey='$timekey'><a href='./$namehref'>$modtime</a></td>
+			
+			<td><a href='../../edit.php?name=$name'>Edit</a></td>
 		</tr>");
 	   }
 	}
@@ -157,7 +145,7 @@
 	    </tbody>
 	</table>
 
-	<h2><?php echo("<a href='$ahref'>$atext hidden files</a>"); ?></h2>
+	<h2><?php print("<a href='$ahref'>$atext hidden files</a>"); ?></h2>
 </div>
 </body>
 </html>
