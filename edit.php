@@ -32,35 +32,42 @@
     <?php
 	include("baseX/BaseXClient.php");
 	$name = $_GET["name"];
-	try {
-	  // create session
-	  $session = new Session("localhost", 1984, "admin", "admin");
-	  try {
-		$path = $session->execute('XQUERY for $doc in collection("Colenso") where matches(document-uri($doc), "'.$name.'") return db:path($doc)');
-	  } catch (Exception $e) {
-		print $e->getMessage();
-	  }
-	  // close session
-	  $session->close();
-	
-	}catch (Exception $e) {
-	  // print exception
-	  print $e->getMessage();
+	//file extension
+	$fileType = pathinfo($name,PATHINFO_EXTENSION);
+	//check file ext
+	if ($fileType != "xml") {
+		echo "Sorry, ". $name ." is not in XML format.\n";
+	} else {
+		try {
+		  // create session
+		  $session = new Session("localhost", 1984, "admin", "admin");
+		  try {
+			$path = $session->execute('XQUERY for $doc in collection("Colenso") where matches(document-uri($doc), "'.$name.'") return db:path($doc)');
+		  } catch (Exception $e) {
+			print $e->getMessage();
+		  }
+		  // close session
+		  $session->close();
+		
+		}catch (Exception $e) {
+		  // print exception
+		  print $e->getMessage();
+		}
+		
+		print "<div class='LayoutDiv'>";
+		print 
+		"<h1>Edit ".$name."</h1>"
+		."<form method ='post' action='baseX/update.php?&target=".$path."'>"
+		."<textarea style='width:100%; height:100%;' name='text' id='ta'>".file_get_contents('TEIBP/content/'.$name)."</textarea><br>"
+		."<input type='submit'>"
+		."</form>";
+		print "</div>";
+		
+		print "<div class='LayoutDiv'>
+		<h1>Preview Text (Without Tags)</h1>
+		<div id='target'></div>
+		</div>";
 	}
-	
-	print "<div class='LayoutDiv'>";
-	print 
-	"<h1>Edit ".$name."</h1>"
-	."<form method ='post' action='baseX/update.php?&target=".$path."'>"
-	."<textarea style='width:100%; height:100%;' name='text' id='ta'>".file_get_contents('TEIBP/content/'.$name)."</textarea><br>"
-	."<input type='submit'>"
-	."</form>";
-	print "</div>";
-	
-	print "<div class='LayoutDiv'>
-	<h1>Preview Text (Without Tags)</h1>
-	<div id='target'></div>
-	</div>";
 	?>
 </div>
 

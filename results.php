@@ -15,13 +15,76 @@
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+<script src="js/jquery.min.js"></script>
 <script src="js/respond.min.js"></script>
+<script type='text/javascript'>
+// <![CDATA[
+jQuery(document).ready(function(){
+$('input:radio[name="range1"]').change(
+    function(){
+        if ($(this).is(':checked') && $(this).val() == 'custom1') {
+             $('div.options1').show();
+        } else {
+			$('div.options1').hide();
+		}
+    }).change();
+});
+// ]]>
+</script>
+<script type='text/javascript'>
+// <![CDATA[
+jQuery(document).ready(function(){
+$('input:radio[name="range2"]').change(
+    function(){
+        if ($(this).is(':checked') && $(this).val() == 'custom2') {
+             $('div.options2').show();
+        } else {
+			$('div.options2').hide();
+		}
+    }).change();
+});
+// ]]>
+</script>
 </head>
 <body>
 <div class="gridContainer clearfix">
 
 <div class="LayoutDiv">
+  <h1>Filter using Logical Operators</h1>
+  <form method ="get" action="baseX/logical_search.php">
+  Logical Search: <input type="search" name="logical" placeholder="Seach letters using text strings">
+  <input type="submit"> <br>
+  <input type="radio" checked = "checked" name="range1" value="all"> Show all results
+  <input type="radio" name="range1" value="custom1"> Select range
+  
+  <div class = "options1">
+  <input type="number" name="lower" placeholder="From result"/>
+  <input type="number" name="upper" placeholder="To result"/>
+  </div>
+  
+	</form>
+  </div>
+    
+  <div class="LayoutDiv">
+  <h1>Filter using xQuery</h1>
+    <form method ="get" action="baseX/markup_search.php">
+  Markup Search: <input type="search" name="xquery" placeholder="Seach letters using xQuery">
+  <input type="submit"> <br>
+  <input type="radio" checked = "checked" name="range2" value="all"> Show all results
+  <input type="radio" name="range2" value="custom2"> Select range
+  
+  <div class = "options2">
+  <input type="number" name="lower" placeholder="From result"/>
+  <input type="number" name="upper" placeholder="To result"/>
+  </div>
+  
+	</form>
+</div>
+
+<div class="LayoutDiv">
 <h1>Search Results</h1>
+<h3>Right-Click/Long-Tap FileName --> Save Link As to save individual files</h3>
+<h3>To save ALL files that matched this search, click <a href="download.php" title="Download all files" target="_blank">here</a> to download as ZIP</h3>
 </div>
 
 <?php
@@ -41,7 +104,7 @@ try {
 	  $name = basename($line);
 	  if ($name != "") {
 		  print "<div class='LayoutDiv'>";
-		  print "<h2>Result ".($i)." from <a href='".($contentDir.$name)."'>".$name."</a></h2> <h3>[<a href='edit.php?name=$name'>Edit $name</a>]</h3>";
+		  print "<h2>Result ".($i)." from <a href='".($contentDir.$name)."'>".$name."</a></h2> <h3>[<a href='edit.php?name=".$name."'>Edit $name</a>]</h3>";
 		  
 		  $file = file_get_contents('results/search'.$i.'.xml');
 		  print $file;
