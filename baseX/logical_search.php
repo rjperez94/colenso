@@ -34,7 +34,7 @@ try {
   $session = new Session("localhost", 1984, "admin", "admin");
   
   try {
-	if (file_exists("../results/.dirs.dat")) {
+	if (file_exists("../results/.dirs.dat") && basename($_SERVER['HTTP_REFERER']) !== "results.php") {
 		unlink("../results/.dirs.dat");
 	}
 	$session->execute("OPEN Colenso");
@@ -56,31 +56,38 @@ try {
 		$url='http://localhost/colenso/';
   		print '<META HTTP-EQUIV=REFRESH CONTENT="1; '.$url.'">';
 	} else {
-	
-		//  create query instance
-		$query = $session->query("ft:search('Colenso','".$input."')");
-		
-			
-		// loop through all results
-		$i = 0;
-		$iter = 0;
-		while($query->more()) {
-		  $iter++;
-		  if ((strcmp($range, "custom") == 0 && ($iter < $lower || $iter > $upper))) {
-			  //skip
-			$query->next();
-		  } else {
-			//put it one in a xml file
-			$myfile = fopen("../results/search".($i+=1).".xml", "w") or die("Unable to open file!");
-			fwrite($myfile, $query->next());
-			fclose($myfile);
-		  }
-		  
-		  
+	  //  create query instance
+	  $query = $session->query("ft:search('Colenso','".$input."')");
+	  
+	  // loop through all results
+	  $i = 0;
+	  $iter = 0;
+	  while($query->more()) {
+		$iter++;
+		if ((strcmp($range, "custom") == 0 && ($iter < $lower || $iter > $upper))) {
+			//skip
+		  $query->next();
+		} else {
+		  //put it one in a xml file
+		  $myfile = fopen("../results/search".($i+=1).".xml", "w") or die("Unable to open file!");
+		  fwrite($myfile, $query->next());
+		  fclose($myfile);
 		}
-		$query->info();
-		// close query instance
-		$query->close();
+		
+		
+	  }
+	  $query->info();
+	  // close query instance
+	  $query->close();
+	  
+	  if (file_exists("../results/.dirs.dat") && basename($_SERVER['HTTP_REFERER']) === "results.php") {
+		copy("../results/.dirs.dat", ".dirs.dat");
+	  } 
+	  if (file_exists(".dirs.dat") && basename($_SERVER['HTTP_REFERER']) !== "results.php") {
+	  	unlink(".dirs.dat");
+	  }
+	  	
+	  
 	}
   } catch (Exception $e) {
     // print exception

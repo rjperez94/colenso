@@ -103,12 +103,16 @@ try {
 	  $line = fgets($reading);
 	  $name = basename($line);
 	  if ($name != "") {
-		  print "<div class='LayoutDiv'>";
-		  print "<h2>Result ".($i)." from <a href='".($contentDir.$name)."'>".$name."</a></h2> <h3>[<a href='edit.php?name=".$name."'>Edit $name</a>]</h3>";
+		  if(basename($_SERVER['HTTP_REFERER']) !== "results.php" || (exec('grep '.escapeshellarg($line).'baseX/.dirs.dat') && basename($_SERVER['HTTP_REFERER']) === "results.php")) {
+			print "<div class='LayoutDiv'>";
+			print "<h2>Result ".($i)." from <a href='".($contentDir.$name)."'>".$name."</a></h2> <h3>[<a href='edit.php?name=".$name."'>Edit $name</a>]</h3>";
+			$file = file_get_contents('results/search'.$i.'.xml');
+			print $file;
+			print "</div>";
+		  } else {
+		  	unlink('results/search'.$i.'.xml');
+		  }
 		  
-		  $file = file_get_contents('results/search'.$i.'.xml');
-		  print $file;
-		  print "</div>";
 		}
 	}
   } catch (Exception $e) {

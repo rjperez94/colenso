@@ -13,7 +13,6 @@ if (file_exists("./results/.dirs.dat")) {
 	  while (!feof($reading)) {
 		$line = preg_replace('/\s+/', '', fgets($reading)); //remove space at end of string
 		if (!empty($line)) { //don't read empty lines
-		  
 		  $zip->addFile("./TEIBP/content/".basename($line), $line);
 		}
 	  }
