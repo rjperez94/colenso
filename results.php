@@ -105,7 +105,7 @@ try {
 	  if ($name != "") {
 		  if(basename($_SERVER['HTTP_REFERER']) !== "results.php" || (exec('grep '.escapeshellarg($line).'baseX/.dirs.dat') && basename($_SERVER['HTTP_REFERER']) === "results.php")) {
 			print "<div class='LayoutDiv'>";
-			print "<h2>Result ".($i)." from <a href='".($contentDir.$name)."'>".$name."</a></h2> <h3>[<a href='edit.php?name=".$name."'>Edit $name</a>]</h3>";
+			print "<h2>Result from <a href='".($contentDir.$name)."'>".$name."</a></h2> <h3>[<a href='edit.php?name=".$name."'>Edit $name</a>]</h3>";
 			$file = file_get_contents('results/search'.$i.'.xml');
 			print $file;
 			print "</div>";

@@ -12,7 +12,8 @@ try {
 	  $session->execute("OPEN Colenso");
 	  
 	  //baseX scripts files dir
-	  $baseXDir = "D:/xampp/htdocs/colenso/baseX/";
+	  $baseXDir = realpath(dirname('self')."/");
+	  $baseXDir = str_replace(DIRECTORY_SEPARATOR, "/", $baseXDir)."/";
 	  //where to put files
 	  $targetDir = "../TEIBP/content/";
 	  $session->execute("REPLACE /".$_GET['target']." ".$baseXDir.$fileName);

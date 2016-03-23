@@ -28,7 +28,8 @@
 include("BaseXClient.php");
 try {
   //Colenso website files dir
-  $siteDir = "D:/xampp/htdocs/colenso/TEIBP/content/";
+  $siteDir = realpath("../TEIBP/content/");
+  $siteDir = str_replace(DIRECTORY_SEPARATOR, "/", $siteDir."/");
   // create session
   $session = new Session("localhost", 1984, "admin", "admin");
   //open db
