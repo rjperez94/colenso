@@ -96,6 +96,10 @@ try {
 		  $session->execute("ADD ".$siteDir.$fileName);
   		  print $session->info();
 		  
+		  //optimize
+		  $session->execute("CREATE INDEX FULLTEXT");
+	  	  $session->execute("OPTIMIZE");
+		  
 		  echo "The file ". $fileName. " has been added to the database.";
 		} else {
 		  echo "Sorry, there was an error adding your file to the database.";

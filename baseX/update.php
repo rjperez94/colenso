@@ -22,6 +22,7 @@ try {
 	  
 	  print "Update of ".$_GET['target']." successful";
 	  $session->execute("CREATE INDEX FULLTEXT");
+	  $session->execute("OPTIMIZE");
 	  
 	  sleep(3);
   } else {
