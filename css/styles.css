@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+html {
+	background:url(../img/table.jpg) left top repeat;
+}
+
 img, object, embed, video {
 	max-width: 100%;
 }
@@ -14,7 +18,7 @@ img, object, embed, video {
 	width: 87.36%;
 	padding-left: 1.82%;
 	padding-right: 1.82%;
-	background: #eee;
+	background:url(../img/old-paper.jpg) left top repeat;
 }
 .LayoutDiv {
 	clear: both;
