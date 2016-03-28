@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 html {
-	background:url(../img/table.jpg) left top repeat;
+	background:url(../img/table.jpg) center top repeat;
 }
 
 img, object, embed, video {
@@ -20,12 +20,21 @@ img, object, embed, video {
 	padding-right: 1.82%;
 	background:url(../img/old-paper.jpg) left top repeat;
 }
+
 .LayoutDiv {
 	clear: both;
 	float: left;
 	margin-left: 0;
 	width: 100%;
 	display: block;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", "Tahoma", sans-serif;
+	font-size:13px;
+	line-height:1.5;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Rockwell", "RockwellStdFF" /*@font-face*/, "Courier New", serif;
+	font-weight: bolder;
 }
 
 textarea {
@@ -34,13 +43,22 @@ textarea {
 	min-width:50%;
 }
 
+a:link 		{	color:#0079ff;	}
+a:visited	{	color:#8C2CE5;	}
+a:hover		{	color:#FF4500;	}
+a:active	{	color:#FF0000;	}
+
 /* Tablet Layout: 481px to 768px. Inherits styles from: Mobile Layout. */
 
 @media only screen and (min-width: 481px) {
+html {
+	background:url(../img/table.jpg) center top repeat;
+}
 .gridContainer {
 	width: 90.675%;
 	padding-left: 1.1625%;
 	padding-right: 1.1625%;
+	background:url(../img/old-paper.jpg) left top repeat;
 }
 #LayoutDiv {
 	clear: both;
@@ -48,23 +66,39 @@ textarea {
 	margin-left: 0;
 	width: 100%;
 	display: block;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", "Tahoma", sans-serif;
+	font-size:13px;
+	line-height:1.5;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Rockwell", "RockwellStdFF" /*@font-face*/, "Courier New", serif;
+	font-weight: bolder;
 }
 textarea {
 	resize:vertical;
 	min-height:50%;
 	min-width:50%;
 }
+
+a:link 		{	color:#0079ff;	}
+a:visited	{	color:#8C2CE5;	}
+a:hover		{	color:#FF4500;	}
+a:active	{	color:#FF0000;	}
 }
 
 /* Desktop Layout: 769px to a max of 1232px.  Inherits styles from: Mobile Layout and Tablet Layout. */
 
 @media only screen and (min-width: 769px) {
+html {
+	background:url(../img/table.jpg) center top repeat;
+}
 .gridContainer {
 	width: 88.2%;
 	max-width: 1232px;
 	padding-left: 0.9%;
 	padding-right: 0.9%;
 	margin: auto;
+	background:url(../img/old-paper.jpg) left top repeat;
 }
 #LayoutDiv {
 	clear: both;
@@ -72,10 +106,21 @@ textarea {
 	margin-left: 0;
 	width: 100%;
 	display: block;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", "Tahoma", sans-serif;
+	font-size:13px;
+	line-height:1.5;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Rockwell", "RockwellStdFF" /*@font-face*/, "Courier New", serif;
+	font-weight: bolder;
 }
 textarea {
 	resize:vertical;
 	min-height:50%;
 	min-width:50%;
 }
+a:link 		{	color:#0079ff;	}
+a:visited	{	color:#8C2CE5;	}
+a:hover		{	color:#FF4500;	}
+a:active	{	color:#FF0000;	}
 }
