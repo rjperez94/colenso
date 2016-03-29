@@ -1,11 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald);
-.fixed-nav-bar {
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.82%;
-  padding-right: 1.82%;
-}
-
 #cssmenu,
 #cssmenu ul,
 #cssmenu ul li,
@@ -40,8 +33,11 @@
   border-radius: 3px;
   font-family: 'Oswald', sans-serif;
   line-height: 1;
-  background: url(../img/paper.jpg) center top repeat;
+  background: #f7f7f7;
   box-shadow: 1px 1px 0 #5c3f21, 2px 2px 0 #5c3f21, 3px 3px 3px rgba(0, 0, 0, 0.35);
+}
+#cssmenu > ul {
+  background: url('../img/paper.jpg');
 }
 #cssmenu > ul > li {
   float: left;
@@ -117,7 +113,7 @@
   text-transform: uppercase;
   text-decoration: none;
   color: #5c3f21;
-  background: url('img/bg.png');
+  background: url('../img/paper.jpg');
 }
 #cssmenu.small-screen #menu-button.menu-opened {
   color: #444444;

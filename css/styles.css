@@ -37,9 +37,15 @@ h1,h2,h3,h4,h5,h6 {
 	font-weight: bolder;
 }
 
+code {
+	font-family:"Lucida Sans Unicode", "Lucida Grande", "Tahoma", sans-serif;
+	font-size:13px;
+	line-height:1.5;
+}
+
 textarea {
 	resize:vertical;
-	min-height:50%;
+	height:50%;
 	min-width:50%;
 }
 

@@ -7,16 +7,19 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="favicon.ico"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Letters of Colenso - Search Results</title>
 <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
 <link href="css/styles.css" rel="stylesheet" type="text/css">
+<link href="css/nav-styles.css" rel="stylesheet" type="text/css">
 
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <script src="js/jquery.min.js"></script>
 <script src="js/respond.min.js"></script>
+<script src="js/nav-script.js"></script>
 <script type='text/javascript'>
 // <![CDATA[
 jQuery(document).ready(function(){
@@ -48,6 +51,17 @@ $('input:radio[name="range2"]').change(
 </head>
 <body>
 <div class="gridContainer clearfix">
+    <div id='cssmenu'>
+    <ul>
+       <li><a href='index.php'>Home</a></li>
+       <li><a href='index.php#about'>About</a></li>
+       <li><a href='index.php#add'>Add Letter</a></li>
+       <li><a href='TEIBP/content/.index.php'>View Letters</a></li>
+       <li><a href='index.php#logical'>Logical Search</a></li>
+       <li><a href='index.php#xquery'>xQuery Search</a></li>
+       <li class="active"><a href='#'>Results</a></li>
+    </ul>
+    </div>
 
 <div class="LayoutDiv">
   <h1>Filter using Logical Operators</h1>

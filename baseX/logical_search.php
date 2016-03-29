@@ -7,13 +7,17 @@
 <!--<![endif]-->
 <head>
 <meta charset="utf-8">
+<link rel="shortcut icon" href="../favicon.ico"/>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Letters of Colenso</title>
-<link href="../css/boilerplate.css" rel="stylesheet" type="text/css">
+<title>Letters of Colenso - Logical Search</title>
 <link href="../css/styles.css" rel="stylesheet" type="text/css">
+<link href="../css/nav-styles.css" rel="stylesheet" type="text/css">
 <!--[if lt IE 9]>
 <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
+<script src="../js/respond.min.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/nav-script.js"></script>
 <script>
 function noResult($string ) {
     alert($string);
@@ -22,7 +26,17 @@ function noResult($string ) {
 </head>
 <body>
 <div class="gridContainer clearfix">
-
+    <div id='cssmenu'>
+    <ul>
+       <li><a href='../index.php'>Home</a></li>
+       <li><a href='../index.php#about'>About</a></li>
+       <li><a href='../index.php#add'>Add Letter</a></li>
+       <li><a href='../TEIBP/content/.index.php'>View Letters</a></li>
+       <li class="active"><a href='../index.php#logical'>Logical Search</a></li>
+       <li><a href='../index.php#xquery'>xQuery Search</a></li>
+    </ul>
+    </div>
+    
 <?php
 /*
  *
@@ -64,7 +78,7 @@ try {
 	  $iter = 0;
 	  while($query->more()) {
 		$iter++;
-		if ((strcmp($range, "custom") == 0 && ($iter < $lower || $iter > $upper))) {
+		if ((strcmp($range, "custom1") == 0 && ($iter < $lower || $iter > $upper))) {
 			//skip
 		  $query->next();
 		} else {
@@ -106,7 +120,7 @@ try {
 	$iter = 0;
 	while($locQuery->more()) {
 	  $iter++;
-	  if ((strcmp($range, "custom") == 0 && ($iter < $lower || $iter > $upper))) {
+	  if ((strcmp($range, "custom1") == 0 && ($iter < $lower || $iter > $upper))) {
 		  //skip
 		$locQuery->next();
 	  } else {
