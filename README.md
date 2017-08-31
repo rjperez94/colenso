@@ -1,6 +1,6 @@
 # Colenso
 
-##Setup XAMPP
+## Setup XAMPP
 1. Download and install XAMPP from <a href="https://www.apachefriends.org/index.html">here</a>
 2. Open directory `XAMPP -> apache -> conf -> httpd.conf`
 3. Look for line "Options Indexes FollowSymLinks Includes ExecCGI" (w/o quotes). Delete word "Indexes"
@@ -12,7 +12,7 @@
 7. Clone this repository to that `colenso` folder
 8. Open the XAMPP Control Panel and start Apache module (You may need to install the Apache service)
 
-##Setup BaseX
+## Setup BaseX
 1. Download and install the BaseX module from <a href="http://basex.org/products/download/all-downloads/">here</a>
 2. Download and extract the Colenso XML files from <a href="http://ecs.victoria.ac.nz/foswiki/pub/Courses/SWEN303_2016T1/Assignments/Colenso_TEIs.zip">here</a>
 3. Open directory `BaseX -> bin -> basexgui`. The BaseX GUI will open
