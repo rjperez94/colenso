@@ -32,7 +32,7 @@ The Colenso Project team includes Dr Sydney Shep, Frith Driver-Burgess, Rhys Owe
 
 ## Setup BaseX
 1. Download and install the BaseX module from <a href="http://basex.org/products/download/all-downloads/">here</a>
-2. Download and extract the Colenso XML files from <a href="http://ecs.victoria.ac.nz/foswiki/pub/Courses/SWEN303_2016T1/Assignments/Colenso_TEIs.zip">here</a>
+2. Download and extract the Colenso XML files from <a href="https://github.com/rjperez94/colenso/tree/master/TEIBP/content">here</a>
 3. Open directory `BaseX -> bin -> basexgui`. The BaseX GUI will open
 4. Go to `Database menu -> New`
 5. In the input file, select the directory where you extracted the Colenso XML files. Choose a name for the database and the input format as XML. Press OK
