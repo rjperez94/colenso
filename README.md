@@ -1,5 +1,23 @@
 # Colenso
 
+## Overview
+
+### The Colenso Project
+
+The intent of the Project is to ignite public and academic interest in Colenso's words – published, unpublished, private letters, journals – both in Māori and English, by sharing them with the world in digital form. We envisage a hub for all things Colenso: a place to read documents in the original, explore his writing through transcriptions, and as a place to experiment with new research and interpretation methods.
+
+The Colenso Project team includes Dr Sydney Shep, Frith Driver-Burgess, Rhys Owen, Charlotte Darling, Meredith Paterson, and Dr Ian St George (The Colenso Society). Previous team members included Melissa Bryant, Emma Chapman, Donelle McKinley and Jamie Norrish.
+
+### Features
+
+- Adding new letters
+- Viewing letters in XML database
+- Editing letters in XML database
+- Searching letters in XML database
+	- logical
+	- xQuery
+- Download search result XMLs into a zip file
+
 ## Setup XAMPP
 1. Download and install XAMPP from <a href="https://www.apachefriends.org/index.html">here</a>
 2. Open directory `XAMPP -> apache -> conf -> httpd.conf`
