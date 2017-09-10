@@ -8,7 +8,7 @@ The intent of the Project is to ignite public and academic interest in Colenso's
 
 The Colenso Project team includes Dr Sydney Shep, Frith Driver-Burgess, Rhys Owen, Charlotte Darling, Meredith Paterson, and Dr Ian St George (The Colenso Society). Previous team members included Melissa Bryant, Emma Chapman, Donelle McKinley and Jamie Norrish.
 
-### Features
+## Features
 
 - Adding new letters
 - Viewing letters in XML database
